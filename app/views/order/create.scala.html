@@ -1,0 +1,29 @@
+@(orderForm: Form[PizzaOrder], pizzas: List[Pizza], quantity: List[Int])
+
+@import helper._
+@implicitFieldConstructor = @{FieldConstructor(twitterBootstrapInput.f)}
+
+@main(Messages("order.create.title")) {
+	@form(action = routes.PizzaOrderController.createOrder, 'class -> "form-horizontal") {
+	    @select(
+		  orderForm("pizzaID"),
+		  pizzas.map{ pizza =>
+		   	pizza.pizzaID.get.toString -> pizza.pizzaName
+		  	  },
+		  '_label -> Messages("order.create.pizzaName.text")
+		)
+		@select(
+		  orderForm("quantity"),
+		  quantity.map{ quantity =>
+		   	quantity.toString -> quantity.toString
+		  	  },
+		  '_label -> Messages("order.create.quantity.text")
+		)
+	    @inputText(orderForm("customerName"), '_label -> Messages("order.create.customerName.text"))
+	    @textarea(orderForm("remarks"), '_label -> Messages("order.create.remarks.text"))
+	    <div class="form-actions">
+	     	<button type="submit" class="btn btn-primary">@Messages("create.text")</button>
+	     	<a class="btn" href="@controllers.routes.PizzaOrderController.index">@Messages("cancel.text")</a>
+	    </div>
+    }
+}

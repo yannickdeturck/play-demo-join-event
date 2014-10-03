@@ -1,0 +1,45 @@
+# general
+date.format = dd/MM/yyyy
+application.title = The Pizza application
+
+#actions
+create.text = Add
+cancel.text = Cancel
+back.text = Back
+
+# Pizza's
+pizza.index.title = Manage pizzas
+pizza.index.create.text = Add pizza
+pizza.index.pizzaName.text = Name
+pizza.index.hasTomato.text = Tomatoes
+pizza.index.hasMozzarella.text = Mozzarella
+pizza.index.hasCheese.text = Cheese
+pizza.index.hasHam.text = Ham
+pizza.index.hasSalami.text = Salami
+pizza.index.no_pizzas = No pizzas exist.
+
+pizza.create.title = Add pizza
+pizza.create.pizzaName.text = Name
+pizza.create.hasTomato.text = Tomatoes
+pizza.create.hasMozzarella.text = Mozzarella
+pizza.create.hasCheese.text = Cheese
+pizza.create.hasHam.text = Ham
+pizza.create.hasSalami.text = Salami
+
+# Bestellingen
+order.index.title = Overview orders
+order.index.pizzas.text = Manage pizzas
+order.index.create.text = Add order
+order.index.pizzaName.text = Pizza
+order.index.quantity.text = Quantity
+order.index.customerName.text = Customer name
+order.index.remarks.text = Remarks
+order.index.orderDate.text = Order date
+order.index.no_orders = There are no open orders.
+order.index.order_sent = The order has been sent!
+
+order.create.title = Add order
+order.create.pizzaName.text = Pizza
+order.create.quantity.text = Quantity
+order.create.customerName.text = Customer name
+order.create.remarks.text = Remarks

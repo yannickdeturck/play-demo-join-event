@@ -1,0 +1,54 @@
+@(orders: List[PizzaOrder])(implicit flash: Flash)
+
+@import helper._
+
+@main(Messages("order.index.title")) {
+	@flash.get("success").map { message =>
+        <p class="alert alert-success">
+          	@message
+        </p>
+    }
+	<a class="btn" href="@controllers.routes.PizzaOrderController.newOrder"><i class="icon-plus-sign"></i> @Messages("order.index.create.text")</a>
+	<a class="btn" href="@controllers.routes.PizzaController.index"><i class="icon-adjust"></i> @Messages("order.index.pizzas.text")</a>
+	
+	@if(orders.isEmpty){
+		<br/><br/><p><i class="icon-info-sign"></i> @Messages("order.index.no_orders")</p>
+	}else{
+		<div class="table_scrollable-area">
+			<table class="table table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+						<th class="crud_column"></th>
+						<th class="crud_column"></th>
+						<th>@Messages("order.index.pizzaName.text")</th>
+						<th>@Messages("order.index.quantity.text")</th>
+						<th>@Messages("order.index.customerName.text")</th>
+						<th>@Messages("order.index.remarks.text")</th>
+						<th>@Messages("order.index.orderDate.text")</th>
+					</tr>
+				</thead>
+				<tbody>		
+					@orders.map { order =>
+						<tr>
+							<td>
+							@form(routes.PizzaOrderController.deleteOrder(order.orderID.get), 'onsubmit -> "return confirm('Bent u zeker dat u deze bestelling wilt verwijderen?')") {
+									<button type="submit" class="btn"><i class="icon-remove"></i></button>
+								}
+							</td>
+							<td>
+							@form(routes.PizzaOrderController.sendOrder(order.orderID.get)) {
+									<button type="submit" class="btn"><i class="icon-share-alt"></i></button>
+								}
+							</td>
+							<td>@order.pizza.pizzaName</td>
+							<td>@order.quantity</td>
+							<td>@order.customerName</td>
+							<td>@order.remarks</td>
+							<td>@order.orderDate</td>
+			    		</tr>
+			    	}
+		    	</tbody>
+			</table>
+		</div>
+	}
+}

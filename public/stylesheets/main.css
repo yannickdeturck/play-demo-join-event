@@ -1,0 +1,28 @@
+body {
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+
+.crud_column {
+	width: 30px;
+}
+
+.table_scrollable-area {
+	margin-top: 10px;
+	height: 400px;
+	overflow: auto;
+}
+
+ul.nav li.dropdown:hover ul.dropdown-menu{
+    display: block;    
+}
+
+table .btn{
+    padding: 2px 6px;
+    font-size: 11px;
+    line-height: 13px;
+}​
+
+table form{
+	margin-bottom: 0px;
+}

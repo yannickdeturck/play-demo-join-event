@@ -1,0 +1,6 @@
+@**
+* Simple component template for displaying a checkbox.
+* The value of the field is assumed to be "true".
+*@
+@(checked: Boolean)
+<input type="checkbox" value="true" @(if(checked) "checked") disabled=disabled)>

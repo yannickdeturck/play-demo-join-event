@@ -1,0 +1,19 @@
+@(pizzaForm: Form[Pizza])
+
+@import helper._
+@implicitFieldConstructor = @{FieldConstructor(twitterBootstrapInput.f)}
+
+@main(Messages("pizza.create.title")) {
+	@form(action = routes.PizzaController.createPizza, 'class -> "form-horizontal") {
+	    @inputText(pizzaForm("pizzaNaam"), '_label -> Messages("pizza.create.pizzaName.text"))
+	    @checkbox(pizzaForm("hasTomato"), '_label -> Messages("pizza.create.hasTomato.text"))
+	    @checkbox(pizzaForm("hasMozzarella"), '_label -> Messages("pizza.create.hasMozzarella.text"))
+	    @checkbox(pizzaForm("hasCheese"), '_label -> Messages("pizza.create.hasCheese.text"))
+	    @checkbox(pizzaForm("hasHam"), '_label -> Messages("pizza.create.hasHam.text"))
+	    @checkbox(pizzaForm("hasSalami"), '_label -> Messages("pizza.create.hasSalami.text"))
+	    <div class="form-actions">
+	     	<button type="submit" class="btn btn-primary">@Messages("create.text")</button>
+	     	<a class="btn" href="@controllers.routes.PizzaController.index">@Messages("cancel.text")</a>
+	    </div>
+        }
+}
