@@ -48,7 +48,7 @@ object PizzaController extends Controller {
   }
 
   def deletePizza(pizzaID: Long) = Action {
-    Pizza.delete(pizzaIDw)
+    Pizza.delete(pizzaID)
     Redirect(routes.PizzaController.index)
   }
 
